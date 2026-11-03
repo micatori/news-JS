@@ -1,8 +1,10 @@
 import AppLoader from './appLoader';
 
+type ApiCallback = (data: unknown) => void;
+
 class AppController extends AppLoader {
-    getSources(callback) {
-        super.getResp(
+    getSources(callback: ApiCallback): void {
+        super.getResp<unknown>(
             {
                 endpoint: 'sources',
             },
@@ -10,16 +12,18 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e, callback) {
-        let target = e.target;
-        const newsContainer = e.currentTarget;
+    getNews(e: MouseEvent, callback: ApiCallback): void {
+        let target = e.target as HTMLElement | null;
+        const newsContainer = e.currentTarget as HTMLElement;
 
-        while (target !== newsContainer) {
+        while (target && target !== newsContainer) {
             if (target.classList.contains('source__item')) {
                 const sourceId = target.getAttribute('data-source-id');
-                if (newsContainer.getAttribute('data-source') !== sourceId) {
+
+                if (sourceId && newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
-                    super.getResp(
+
+                    super.getResp<unknown>(
                         {
                             endpoint: 'everything',
                             options: {
@@ -29,9 +33,11 @@ class AppController extends AppLoader {
                         callback
                     );
                 }
+
                 return;
             }
-            target = target.parentNode;
+
+            target = target.parentElement;
         }
     }
 }
