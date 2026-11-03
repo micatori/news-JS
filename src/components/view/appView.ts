@@ -1,12 +1,12 @@
-import News from './news/news';
-import Sources from './sources/sources';
+import News, { type NewsItem } from './news/news';
+import Sources, { type SourceItem } from './sources/sources';
 
 interface NewsResponse {
-    articles?: unknown[];
+    articles?: NewsItem[];
 }
 
 interface SourcesResponse {
-    sources?: unknown[];
+    sources?: SourceItem[];
 }
 
 export class AppView {
