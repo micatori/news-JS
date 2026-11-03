@@ -1,10 +1,21 @@
 import AppLoader from './appLoader';
+import type { NewsItem } from '../view/news/news';
+import type { SourceItem } from '../view/sources/sources';
 
-type ApiCallback = (data: unknown) => void;
+interface NewsResponse {
+    articles?: NewsItem[];
+}
+
+interface SourcesResponse {
+    sources?: SourceItem[];
+}
+
+type NewsCallback = (data: NewsResponse) => void;
+type SourcesCallback = (data: SourcesResponse) => void;
 
 class AppController extends AppLoader {
-    getSources(callback: ApiCallback): void {
-        super.getResp<unknown>(
+    getSources(callback: SourcesCallback): void {
+        super.getResp<SourcesResponse>(
             {
                 endpoint: 'sources',
             },
@@ -12,7 +23,7 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e: MouseEvent, callback: ApiCallback): void {
+    getNews(e: MouseEvent, callback: NewsCallback): void {
         let target = e.target as HTMLElement | null;
         const newsContainer = e.currentTarget as HTMLElement;
 
@@ -23,7 +34,7 @@ class AppController extends AppLoader {
                 if (sourceId && newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
 
-                    super.getResp<unknown>(
+                    super.getResp<NewsResponse>(
                         {
                             endpoint: 'everything',
                             options: {
