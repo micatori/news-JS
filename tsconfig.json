@@ -24,7 +24,9 @@
 
     // Other
     "skipLibCheck": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
