@@ -12,7 +12,13 @@ export interface NewsItem {
     url: string;
 }
 
+type NewsMeta = Pick<NewsItem, 'author' | 'source'>;
+
 class News {
+    private drawMeta(item: NewsMeta, author: Element, source: Element): void {
+        author.textContent = item.author || item.source.name;
+        source.textContent = item.source.name;
+    }
     draw(data: NewsItem[]): void {
         const news = data.slice(0, 10);
 
@@ -42,11 +48,10 @@ class News {
             if (idx % 2) newsItem.classList.add('alt');
 
             photo.style.backgroundImage = `url(${item.urlToImage || 'img/news_placeholder.jpg'})`;
-            author.textContent = item.author || item.source.name;
-            date.textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
+            this.drawMeta(item, author, source);
 
+            date.textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
             title.textContent = item.title;
-            source.textContent = item.source.name;
             description.textContent = item.description;
             link.setAttribute('href', item.url);
 

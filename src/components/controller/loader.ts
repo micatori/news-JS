@@ -3,13 +3,13 @@ interface RequestConfig {
     options?: RequestOptions;
 }
 
-type RequestOptions = Record<string, string>;
+type RequestOptions = Partial<Record<string, string>>;
 
 type ResponseCallback<T> = (data: T) => void;
 
 class Loader {
-    private baseLink: string;
-    private options: RequestOptions;
+    private readonly baseLink: string;
+    private readonly options: RequestOptions;
 
     constructor(baseLink: string, options: RequestOptions) {
         this.baseLink = baseLink;
@@ -39,9 +39,17 @@ class Loader {
 
     private makeUrl(options: RequestOptions, endpoint: string): string {
         const urlOptions = { ...this.options, ...options };
-        const params = new URLSearchParams(urlOptions);
+        const params = new URLSearchParams();
 
-        return `${this.baseLink}${endpoint}?${params.toString()}`;
+        Object.entries(urlOptions).forEach(([key, value]) => {
+            if (value !== undefined) {
+                params.set(key, value);
+            }
+        });
+
+        const queryString = params.toString();
+
+        return queryString ? `${this.baseLink}${endpoint}?${queryString}` : `${this.baseLink}${endpoint}`;
     }
 
     private load<T>(

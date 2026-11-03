@@ -2,6 +2,11 @@ import AppLoader from './appLoader';
 import type { NewsItem } from '../view/news/news';
 import type { SourceItem } from '../view/sources/sources';
 
+enum ApiEndpoint {
+    Sources = 'mocks/sources',
+    Everything = 'mocks/everything',
+}
+
 interface NewsResponse {
     articles?: NewsItem[];
 }
@@ -17,7 +22,7 @@ class AppController extends AppLoader {
     getSources(callback: SourcesCallback): void {
         super.getResp<SourcesResponse>(
             {
-                endpoint: 'mocks/sources',
+                endpoint: ApiEndpoint.Sources,
             },
             callback
         );
@@ -36,7 +41,7 @@ class AppController extends AppLoader {
 
                     super.getResp<NewsResponse>(
                         {
-                            endpoint: 'mocks/everything',
+                            endpoint: ApiEndpoint.Everything,
                             options: {
                                 sources: sourceId,
                             },
