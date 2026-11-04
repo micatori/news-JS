@@ -50,7 +50,7 @@ footer {
 .nav-item {
   color: rgb(68, 68, 68);
 }
-.nav-item a {
+.rs-school-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
