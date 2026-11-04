@@ -19,18 +19,18 @@ footer {
     align-items: center;
     justify-content: center;
 }
-ul .copyright {
+.copyright {
     font-size: 14px;
     color: #333;
     text-align: center;
 }
-ul .copyright a {
+.copyright a {
     color: #444;
 }
-ul .copyright a:hover {
+.copyright a:hover {
     color: #555;
 }
-ul .copyright:before {
+.copyright:before {
     content: '©';
 }
 .container {
@@ -39,6 +39,7 @@ ul .copyright:before {
 }
 .nav-list {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
