@@ -19,17 +19,43 @@ footer {
     align-items: center;
     justify-content: center;
 }
-footer .copyright {
+ul .copyright {
     font-size: 14px;
     color: #333;
     text-align: center;
 }
-footer .copyright a {
+ul .copyright a {
     color: #444;
 }
-footer .copyright a:hover {
+ul .copyright a:hover {
     color: #555;
 }
-footer .copyright:before {
+ul .copyright:before {
     content: '©';
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+.nav-item {
+  color: rgb(68, 68, 68);
+}
+.nav-link {
+  padding: 0 20px;
+  line-height: 50px;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 90%;
+  color: rgb(131, 131, 204);
+  font-weight: 500;
+  transition: 0.4s;
 }
