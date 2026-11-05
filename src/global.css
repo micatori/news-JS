@@ -19,17 +19,57 @@ footer {
     align-items: center;
     justify-content: center;
 }
-footer .copyright {
+.copyright {
     font-size: 14px;
     color: #333;
     text-align: center;
 }
-footer .copyright a {
+.copyright a {
     color: #444;
 }
-footer .copyright a:hover {
+.copyright a:hover {
     color: #555;
 }
-footer .copyright:before {
+.copyright:before {
     content: '©';
+}
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+}
+.nav-item {
+    color: rgb(68, 68, 68);
+}
+.rs-school-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(68, 68, 68);
+    padding: 5px;
+    border-radius: 4px;
+}
+.nav-link {
+    padding: 0 20px;
+    line-height: 50px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 90%;
+    color: rgb(131, 131, 204);
+    font-weight: 500;
+    transition: 0.4s;
+}
+.rs-school-logo {
+    height: 30px;
 }
