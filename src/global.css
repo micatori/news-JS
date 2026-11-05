@@ -34,21 +34,21 @@ footer {
     content: '©';
 }
 .container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 .nav-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    list-style: none;
 }
 .nav-item {
-  color: rgb(68, 68, 68);
+    color: rgb(68, 68, 68);
 }
 .rs-school-link {
     display: inline-flex;
@@ -59,16 +59,16 @@ footer {
     border-radius: 4px;
 }
 .nav-link {
-  padding: 0 20px;
-  line-height: 50px;
-  text-decoration: none;
-  font-family: 'Roboto', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 90%;
-  color: rgb(131, 131, 204);
-  font-weight: 500;
-  transition: 0.4s;
+    padding: 0 20px;
+    line-height: 50px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 90%;
+    color: rgb(131, 131, 204);
+    font-weight: 500;
+    transition: 0.4s;
 }
 .rs-school-logo {
     height: 30px;
